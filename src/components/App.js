@@ -3,14 +3,13 @@
 import './../styles/App.css';
 
 import React, { useState } from "react";
-
+import "./styles.css";
 
 const App = () => {
   const [bill, setBill] = useState(50);
   const [tipPercent, setTipPercent] = useState(18);
   const [people, setPeople] = useState(1);
 
-  // Calculate tip per person
   const totalTip = bill * (tipPercent / 100);
   const tipPerPerson = (totalTip / people).toFixed(2);
 
@@ -19,36 +18,33 @@ const App = () => {
       <h2>Tip Calculator</h2>
 
       <div>
-        <label>
-          Bill:
-          <input
-            type="number"
-            value={bill}
-            onChange={(e) => setBill(Number(e.target.value))}
-          />
-        </label>
+        <label htmlFor="billamt">Bill:</label>
+        <input
+          id="billamt"
+          type="number"
+          value={bill}
+          onChange={(e) => setBill(Number(e.target.value))}
+        />
       </div>
 
       <div>
-        <label>
-          Tip Percentage:
-          <input
-            type="number"
-            value={tipPercent}
-            onChange={(e) => setTipPercent(Number(e.target.value))}
-          />
-        </label>
+        <label htmlFor="tipamt">Tip Percentage:</label>
+        <input
+          id="tipamt"
+          type="number"
+          value={tipPercent}
+          onChange={(e) => setTipPercent(Number(e.target.value))}
+        />
       </div>
 
       <div>
-        <label>
-          Number of People:
-          <input
-            type="number"
-            value={people}
-            onChange={(e) => setPeople(Number(e.target.value))}
-          />
-        </label>
+        <label htmlFor="peopleamt">Number of People:</label>
+        <input
+          id="peopleamt"
+          type="number"
+          value={people}
+          onChange={(e) => setPeople(Number(e.target.value))}
+        />
       </div>
 
       <p>Tip Per Person: ${tipPerPerson}</p>
@@ -57,4 +53,3 @@ const App = () => {
 };
 
 export default App;
-
